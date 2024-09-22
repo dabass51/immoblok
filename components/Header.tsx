@@ -81,16 +81,6 @@ const NavItem: FC<NavItemProps> = ({ href, label }) => (
     </div>
 );
 
-// Navigation Items List with Icons
-const navItems = [
-    { href: "#", label: "Startseite", icon: HomeIcon },
-    { href: "#", label: "Funtionen", icon: PuzzleIcon },
-    { href: "#", label: "Service", icon: BriefcaseIcon },
-    { href: "#", label: "Sicherheit", icon: LockIcon },
-    { href: "#", label: "Magazin", icon: BookIcon },
-    { href: "/pricing", label: "Tarife", icon: DollarSignIcon }
-];
-
 // Icons
 const HomeIcon: FC<SVGIconProps> = (props) => (
     <svg
@@ -216,5 +206,16 @@ const MenuIcon: FC<SVGIconProps> = (props) => (
         <line x1="4" x2="20" y1="18" y2="18" />
     </svg>
 );
+
+// Navigation Items List with Icons
+const navItems = [
+    { href: "#", label: "Startseite", icon: HomeIcon },
+    { href: "#", label: "Funtionen", icon: PuzzleIcon },
+    { href: "#", label: "Service", icon: BriefcaseIcon },
+    { href: "#", label: "Sicherheit", icon: LockIcon },
+    { href: "#", label: "Magazin", icon: BookIcon },
+    { href: "/pricing", label: "Tarife", icon: DollarSignIcon }
+];
+
 
 export default Header;
