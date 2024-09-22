@@ -10,8 +10,6 @@ interface PricingCardBlock {
   features: {feature:string}[];
   testText: string;
   highlighted: boolean;
-  durationLabel: string;
-  alternativeDurationLabel: string;
 }
 
 interface PricetableContainerBlock {
@@ -22,6 +20,8 @@ interface PricetableContainerBlock {
   description: string;
   ctaText: string;
   pricingCards: PricingCardBlock[];
+  durationLabel: string;
+  alternativeDurationLabel: string;
 }
 
 type Block = PricingCardBlock | PricetableContainerBlock;
