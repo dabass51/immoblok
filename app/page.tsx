@@ -3,8 +3,8 @@ import DynamicComponent from '@/lib/dynamicComponent';
 
 interface Block {
   _uid: string;
-  component: string;
-  [key: string]: string;
+  component: 'PricingCard' | 'PricetableContainer';
+  [key: string]: never;
 }
 
 export default async function Home() {
