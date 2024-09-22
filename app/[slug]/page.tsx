@@ -37,7 +37,7 @@ type Block = PricingCardBlock | PricetableContainerBlock;
 export default async function Page({ params }: { params: { slug?: string[] } }) {
 
     const { data } = await Storyblok.get(`cdn/stories/${params.slug}`, {
-        version: 'published',
+        version: 'draft',
     }).catch(() => {
         notFound();
     });

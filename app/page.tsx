@@ -33,7 +33,7 @@ type Block = PricingCardBlock | PricetableContainerBlock;
 
 export default async function Home() {
   const { data } = await Storyblok.get('cdn/stories/home', {
-    version: 'published',
+    version: 'draft',
   });
   const content = data.story.content;
   return (
