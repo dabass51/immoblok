@@ -3,7 +3,7 @@ import PricetableContainer from "@/components/PricetableContainer";
 
 interface BlockComponentProps {
     _uid: string;
-    component: 'PricingCard' | 'PricetableContainer'; // Specify the valid components
+    component: 'PricingCard' | 'PricetableContainer';
     [key: string]: never;
 }
 
