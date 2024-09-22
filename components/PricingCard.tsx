@@ -4,7 +4,7 @@ interface PricingCardProps {
     title: string;
     price: string;
     description: string;
-    features: {feature}[];
+    features: {feature:string}[];
     testText: string;
     highlighted: boolean;
 }
