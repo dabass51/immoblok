@@ -19,6 +19,9 @@ interface PlanComparisonTableProps {
 }
 
 const PlanComparisonTable: React.FC<PlanComparisonTableProps> = ({ planFeatures }) => {
+    // Define the valid keys for the features in a way TypeScript understands
+    const plans: (keyof Feature)[] = ["free", "startup", "team", "enterprise"];
+
     return (
         <div className="mt-20 lg:mt-32 max-w-7xl mx-auto">
             {/* Table Heading */}
@@ -49,18 +52,15 @@ const PlanComparisonTable: React.FC<PlanComparisonTableProps> = ({ planFeatures 
                             {featureType.features.map((feature) => (
                                 <tr className="text-gray-600 border-b" key={feature.name}>
                                     <td className="px-4 py-3">{feature.name}</td>
-                                    <td className="text-center">
-                                        {feature.free ? <CheckIcon className="h-5 w-5 mx-auto" /> : <MinusIcon className="h-5 w-5 mx-auto" />}
-                                    </td>
-                                    <td className="text-center">
-                                        {feature.startup ? <CheckIcon className="h-5 w-5 mx-auto" /> : <MinusIcon className="h-5 w-5 mx-auto" />}
-                                    </td>
-                                    <td className="text-center">
-                                        {feature.team ? <CheckIcon className="h-5 w-5 mx-auto" /> : <MinusIcon className="h-5 w-5 mx-auto" />}
-                                    </td>
-                                    <td className="text-center">
-                                        {feature.enterprise ? <CheckIcon className="h-5 w-5 mx-auto" /> : <MinusIcon className="h-5 w-5 mx-auto" />}
-                                    </td>
+                                    {plans.map((plan) => (
+                                        <td className="text-center" key={plan}>
+                                            {feature[plan] ? (
+                                                <CheckIcon className="h-5 w-5 mx-auto" />
+                                            ) : (
+                                                <MinusIcon className="h-5 w-5 mx-auto" />
+                                            )}
+                                        </td>
+                                    ))}
                                 </tr>
                             ))}
                         </React.Fragment>
@@ -71,10 +71,10 @@ const PlanComparisonTable: React.FC<PlanComparisonTableProps> = ({ planFeatures 
 
             {/* Mobile View (xs to lg) */}
             <div className="lg:hidden space-y-12">
-                {["Free", "Startup", "Team", "Enterprise"].map((plan) => (
+                {plans.map((plan) => (
                     <section key={plan}>
                         <div className="mb-4">
-                            <h4 className="text-xl font-medium">{plan}</h4>
+                            <h4 className="text-xl font-medium capitalize">{plan}</h4>
                         </div>
                         <table className="w-full bg-white border border-gray-200">
                             <tbody>
@@ -89,7 +89,7 @@ const PlanComparisonTable: React.FC<PlanComparisonTableProps> = ({ planFeatures 
                                         <tr className="text-gray-600 border-b" key={feature.name}>
                                             <td className="text-left px-4 py-3">{feature.name}</td>
                                             <td className="text-right pr-4">
-                                                {feature[plan.toLowerCase()] ? (
+                                                {feature[plan] ? (
                                                     <CheckIcon className="h-5 w-5 inline-block" />
                                                 ) : (
                                                     <MinusIcon className="h-5 w-5 inline-block" />
