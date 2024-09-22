@@ -6,13 +6,17 @@ import { Button } from '@/components/ui/button';
 import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
 
-// Define types for content based on blok data structure
+interface PricingCardFeature {
+    _uid: string;
+    feature: string;
+    component: string;
+}
 interface PricingCardData {
     _uid: string;
     title: string;
     price: string;
     description: string;
-    features: [];
+    features: PricingCardFeature[];
     testText: string;
     highlighted: boolean;
 }
