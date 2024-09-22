@@ -7,7 +7,7 @@ interface PricingCardBlock {
   title: string;
   price: string;
   description: string;
-  features: string[];
+  features: {feature:string}[];
   testText: string;
   highlighted: boolean;
 }
