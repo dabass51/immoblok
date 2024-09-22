@@ -4,7 +4,7 @@ import DynamicComponent from '@/lib/dynamicComponent';
 interface Block {
   _uid: string;
   component: 'PricingCard' | 'PricetableContainer';
-  [key: string]: never;
+  [key: string]: unknown;
 }
 
 export default async function Home() {
