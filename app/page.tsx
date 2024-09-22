@@ -1,16 +1,15 @@
-import { useEffect, useState } from 'react';
 import Storyblok from '@/lib/storyblok';
 import DynamicComponent from '@/lib/dynamicComponent';
 
 interface Block {
   _uid: string;
   component: string;
-  [key: string]: any;
+  [key: string]: string;
 }
 
 export default async function Home() {
   const { data } = await Storyblok.get('cdn/stories/home', {
-    version: 'published', // Use '' in production
+    version: 'published',
   });
   const content = data.story.content;
   return (

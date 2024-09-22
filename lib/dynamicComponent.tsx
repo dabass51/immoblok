@@ -1,4 +1,3 @@
-import dynamic from 'next/dynamic';
 import PricingCard from '@/components/PricingCard';
 import PricetableContainer from '@/components/PricetableContainer';
 
@@ -6,7 +5,7 @@ import PricetableContainer from '@/components/PricetableContainer';
 interface BlockComponentProps {
     _uid: string;
     component: string;
-    [key: string]: any;
+    [key: string]: string;
 }
 
 // A resolver function to map Storyblok components to React components
