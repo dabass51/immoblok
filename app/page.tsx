@@ -1,11 +1,28 @@
 import Storyblok from '@/lib/storyblok';
 import DynamicComponent from '@/lib/dynamicComponent';
 
-interface Block {
+interface PricingCardBlock {
   _uid: string;
-  component: 'PricingCard' | 'PricetableContainer';
-  [key: string]: unknown;
+  component: 'PricingCard';
+  title: string;
+  price: string;
+  description: string;
+  features: string[];
+  testText: string;
+  highlighted: boolean;
 }
+
+interface PricetableContainerBlock {
+  _uid: string;
+  component: 'PricetableContainer';
+  title: string;
+  subtitle: string;
+  description: string;
+  ctaText: string;
+  pricingCards: PricingCardBlock[];
+}
+
+type Block = PricingCardBlock | PricetableContainerBlock;
 
 export default async function Home() {
   const { data } = await Storyblok.get('cdn/stories/home', {
