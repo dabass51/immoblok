@@ -70,7 +70,7 @@ export default function PricingCard({ title, price, description, features, testT
             )}
             { !highlighted && (
                 <Button
-                    variant=""
+                    variant="primary"
                 >
                     {testText}
                 </Button>
