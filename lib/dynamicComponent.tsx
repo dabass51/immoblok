@@ -24,17 +24,16 @@ interface PricetableContainerBlock {
 
 type Block = PricingCardBlock | PricetableContainerBlock;
 
-const Components = {
-    PricingCard,
-    PricetableContainer,
-};
-
 const DynamicComponent = ({ blok }: { blok: Block }) => {
-    const Component = Components[blok.component];
-    if (Component) {
-        return <Component {...blok} />;
+    if (blok.component === 'PricingCard') {
+        return <PricingCard {...blok} />;
     }
-    return <p>The component {blok.component} has not been created yet.</p>;
+
+    if (blok.component === 'PricetableContainer') {
+        return <PricetableContainer {...blok} />;
+    }
+
+    return <p>The component has not been created yet.</p>;
 };
 
 export default DynamicComponent;
