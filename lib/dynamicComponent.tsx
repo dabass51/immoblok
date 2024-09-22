@@ -4,7 +4,7 @@ import PricetableContainer from "@/components/PricetableContainer";
 interface BlockComponentProps {
     _uid: string;
     component: 'PricingCard' | 'PricetableContainer';
-    [key: string]: never;
+    [key: string]: unknown;
 }
 
 const Components = {
