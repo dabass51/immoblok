@@ -1,22 +1,20 @@
-import PricingCard from '@/components/PricingCard';
-import PricetableContainer from '@/components/PricetableContainer';
+import PricingCard from "@/components/PricingCard";
+import PricetableContainer from "@/components/PricetableContainer";
 
-// Define the type of component blocks from Storyblok
 interface BlockComponentProps {
     _uid: string;
-    component: string;
-    [key: string]: string;
+    component: 'PricingCard' | 'PricetableContainer'; // Specify the valid components
+    [key: string]: any;
 }
 
-// A resolver function to map Storyblok components to React components
 const Components = {
-    PricingCard: PricingCard,
-    PricetableContainer: PricetableContainer,
+    PricingCard,
+    PricetableContainer,
 };
 
 const DynamicComponent = ({ blok }: { blok: BlockComponentProps }) => {
-    if (typeof Components[blok.component] !== 'undefined') {
-        const Component = Components[blok.component];
+    const Component = Components[blok.component];
+    if (Component) {
         return <Component {...blok} />;
     }
     return <p>The component {blok.component} has not been created yet.</p>;
