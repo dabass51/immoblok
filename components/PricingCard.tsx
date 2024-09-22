@@ -10,6 +10,7 @@ interface PricingCardProps {
 }
 
 export default function PricingCard({ title, price, description, features, testText, highlighted }: PricingCardProps) {
+    console.log(features)
     const featureArray = features.map((item) => item.feature);
 
     return (

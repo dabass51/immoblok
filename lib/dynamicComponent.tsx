@@ -1,13 +1,18 @@
 import PricingCard from "@/components/PricingCard";
 import PricetableContainer from "@/components/PricetableContainer";
 
+interface PricingCardFeature {
+    _uid: string;
+    feature: string;
+    component: string;
+}
 interface PricingCardBlock {
     _uid: string;
     component: 'PricingCard';
     title: string;
     price: string;
     description: string;
-    features: {feature:string}[];
+    features: PricingCardFeature[];
     testText: string;
     highlighted: boolean;
 }
